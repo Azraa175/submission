@@ -1,17 +1,14 @@
+import streamlit as st
+import pandas as pd
 import os
 
 @st.cache_data
 def load_data():
-    # ambil path folder tempat dashboard.py berada
     base_path = os.path.dirname(__file__)
-    
-    # gabungkan dengan nama file csv
     file_path = os.path.join(base_path, "main_data.csv")
-    
-    # baca file
+
     df = pd.read_csv(file_path)
 
-    # Mapping Season
     season_map = {
         1: "Musim Semi",
         2: "Musim Panas",
@@ -19,7 +16,6 @@ def load_data():
         4: "Musim Dingin"
     }
 
-    # Mapping Weather
     weather_map = {
         1: "Cerah",
         2: "Berawan",
